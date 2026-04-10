@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { DraftExpense, Value } from "../types";
 import type { ChangeEvent, SubmitEvent } from "react";
 import ErrorMessage from "./ErrorMessage";
+import { useBudget } from "../hooks/useBudget";
 
 
 
@@ -17,6 +18,9 @@ export default function ExpenseForm() {
 		category: '',
 		date: new Date()
 	})
+	const [error, setError] = useState('')
+	const {dispatch} = useBudget()
+
 
 	const handleChangeDate = (value : Value) => {
 		setExpense({
@@ -24,8 +28,6 @@ export default function ExpenseForm() {
 			date: value
 		})
 	}
-
-	const [error, setError] = useState('')
 
 	const handleChange = (e : ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
 		const {name, value} = e.target
@@ -46,7 +48,8 @@ export default function ExpenseForm() {
 			return
 		}
 
-		console.log('todo bien')
+		// Agregar un nuevo Gasto
+		dispatch({type: 'add-expense', payload: {expense}})
 	}
 
 	return (
