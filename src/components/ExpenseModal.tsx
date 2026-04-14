@@ -44,7 +44,7 @@ export default function ExpenseModal() {
                     leaveFrom="opacity-50 scale-100"
                     leaveTo="opacity-0 scale-95"
                     >
-                    <DialogPanel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <DialogPanel className="w-full max-w-3xl transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
 
                         <ExpenseForm />
 
