@@ -17,6 +17,8 @@ export type BudgetState = {
     editingId: Expense['id']
 }
 
+
+
 export const initialState : BudgetState = {
     budget: 0,
     modal: false,
